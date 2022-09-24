@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/css/all.min.css" />
+    <link rel="stylesheet" href="src/css/main.css" />
+    <title>To Do APP</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="container">
+          <form class="form">
+            <div class="input-field">
+              <input type="text" id="taskName" data-id="1" />
+              <div class="error"></div>
+            </div>
+            <input type="submit" value="Add" id="addTask" accesskey="enter" />
+          </form>
+          <div class="tasksContainer"></div>
+          <div class="completedTasksContainer">
+            <p class="completed">Completed Tasks <span>0</span></p>
+            <div class="tasks"></div>
+          </div>
+          <div class="deleteAll">
+            <button>Delete All <span>0</span></button>
+          </div>
+        </div>
+
+        <div class="overlay" data-id="1"></div>
+        <div class="modal emptyInput" data-modal="1">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title">Error</h1>
+              <button class="closeModalHeaderBtn" data-btn="1">
+                <i class="fas fa-close"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Input Can't Be Empty</p>
+            </div>
+            <div class="modal-footer">
+              <button class="closeModalFooterBtn" data-btn="1">CLose</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="src/js/script.js"></script>
+  </body>
+</html>

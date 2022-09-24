@@ -1,0 +1,301 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background: #3e3e3e;
+}
+body main section {
+  padding: 100px 20px;
+}
+body main section .container {
+  min-width: 300px;
+  max-width: 700px;
+  margin: auto;
+  background: #f2f3f5;
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+}
+body main section .container .completed {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+body main section .container .completed span {
+  width: 30px;
+  height: 30px;
+  background: #3e3e3e;
+  border-radius: 50%;
+  z-index: 11;
+  display: inline-block;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+body main section .container .form {
+  display: flex;
+  align-items: center;
+  background: #f2f3f5;
+  padding: 20px 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  justify-content: space-between;
+}
+body main section .container .form .input-field {
+  width: 80%;
+}
+body main section .container .form .input-field input {
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  outline: none;
+  background: #3e3e3e;
+  border-radius: 8px;
+  color: #fff;
+  caret-color: #fff;
+  font-size: 17px;
+  position: relative;
+}
+body main section .container .form .input-field .error {
+  position: absolute;
+  font-size: 14px;
+  color: red;
+  top: 30px;
+  left: 10px;
+}
+body main section .container .form #addTask {
+  width: 18%;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: #3a6cf4;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+}
+body main section .container .tasksContainer,
+body main section .container .completedTasksContainer {
+  background: #3e3e3e;
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 8px;
+}
+body main section .container .tasksContainer .task,
+body main section .container .completedTasksContainer .task {
+  border-radius: 8px;
+  background: #fff;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+body main section .container .tasksContainer .task:nth-last-child(1),
+body main section .container .completedTasksContainer .task:nth-last-child(1) {
+  margin-bottom: 0;
+}
+body main section .container .tasksContainer .task .name,
+body main section .container .completedTasksContainer .task .name {
+  padding: 8px 0;
+}
+body main section .container .tasksContainer .task .date,
+body main section .container .completedTasksContainer .task .date {
+  position: absolute;
+  right: 10px;
+  font-size: 12px;
+  top: 4px;
+}
+body main section .container .tasksContainer .task .controls,
+body main section .container .completedTasksContainer .task .controls {
+  position: absolute;
+  transition: 0.4s ease;
+  top: 20px;
+  right: -100%;
+}
+body main section .container .tasksContainer .task .controls button,
+body main section .container .completedTasksContainer .task .controls button {
+  border: none;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+body main section .container .tasksContainer .task .controls .done,
+body main section .container .completedTasksContainer .task .controls .done {
+  background: #1fcd1d;
+  margin-right: 5px;
+}
+body main section .container .tasksContainer .task .controls .delete,
+body main section .container .completedTasksContainer .task .controls .delete {
+  background: red;
+}
+body main section .container .tasksContainer .task:hover .controls,
+body main section .container .completedTasksContainer .task:hover .controls {
+  right: 10px;
+}
+body main section .container .tasksContainer .task.done,
+body main section .container .completedTasksContainer .task.done {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+body main section .container .tasksContainer .task.done::before,
+body main section .container .completedTasksContainer .task.done::before {
+  content: "Completed";
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  text-decoration: none;
+}
+body main section .container .completedTasksContainer > p {
+  background: #fff;
+  border-radius: 5px;
+  padding: 15px;
+}
+body main section .container .completedTasksContainer .tasks .task:first-child {
+  margin-top: 15px;
+}
+body main section .container .deleteAll button {
+  border: none;
+  background: red;
+  padding: 10px 8px;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 8px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+}
+body main section .container .deleteAll button span {
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  color: #3e3e3e;
+}
+
+.modal {
+  position: fixed;
+  min-width: 260px;
+  max-width: 700px;
+  width: 100%;
+  top: -100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #3e3e3e;
+  transition: 0.4s ease;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  z-index: 50;
+}
+.modal-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px 30px;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ddd;
+  padding: 0 0 10px 0;
+}
+.modal-header button {
+  padding: 8px 12px;
+  border: none;
+  background: #3e3e3e;
+  border-radius: 4px;
+}
+.modal-header button i {
+  font-size: 18px;
+  color: #fff;
+}
+.modal-body {
+  padding: 20px 0;
+  font-size: 18px;
+}
+.modal-footer {
+  text-align: center;
+}
+.modal-footer button {
+  padding: 5px 12px;
+  font-size: 18px;
+  border: none;
+  background: #f01000;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.overlay {
+  content: "";
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(62, 62, 62, 0.3137254902);
+  z-index: 40;
+}
+
+.d-none {
+  -webkit-animation: bottomToTop 0.5s forwards 0s;
+          animation: bottomToTop 0.5s forwards 0s;
+}
+
+.d-block {
+  -webkit-animation: topToBottom 0.5s forwards 0s 1;
+          animation: topToBottom 0.5s forwards 0s 1;
+}
+
+@-webkit-keyframes topToBottom {
+  0% {
+    opacity: 0;
+    top: -100%;
+  }
+  100% {
+    opacity: 1;
+    top: 50%;
+  }
+}
+
+@keyframes topToBottom {
+  0% {
+    opacity: 0;
+    top: -100%;
+  }
+  100% {
+    opacity: 1;
+    top: 50%;
+  }
+}
+@-webkit-keyframes bottomToTop {
+  0% {
+    opacity: 1;
+    top: 40%;
+  }
+  100% {
+    opacity: 0;
+    top: -100%;
+  }
+}
+@keyframes bottomToTop {
+  0% {
+    opacity: 1;
+    top: 40%;
+  }
+  100% {
+    opacity: 0;
+    top: -100%;
+  }
+}/*# sourceMappingURL=main.css.map */
