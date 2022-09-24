@@ -5,7 +5,9 @@
 ![GitHub forks](https://img.shields.io/github/forks/abdelrhman492/To-Do-List?style=social)
 
 To Do List : You Can Add Your Tasks <br/>
-Then You Can Mark As Completed Like <del>I have Been Completed</del>
+Then You Can Mark As Completed Like <del>I have Been Completed</del><br/>
+When You Add Task It Auto Saved in localStorage <br/>
+You Also Can Delete One Task Or All Of Them
 
 ## Demo
 
@@ -33,3 +35,6 @@ Windows:
 ```bash
 git clone https://github.com/abdelrhman492/To-Do-List.git
 ```
+
+### Live Demo
+* [To Do App](https://abdelrhman492.github.io/To-Do-List/ "Click Here")
